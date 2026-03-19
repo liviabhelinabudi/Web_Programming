@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>halaman web atribut style list-style-image</title>
+    </head>
+    <body>
+    <style>
+        .purple{
+        list-style-image: url(img/sqpurple.gif);}
+        .orange{
+            list-style-image: url(img/sqorange.gif);}
+        .nobullet{
+            list-style-type: none;}
+        .orange-text{
+            color: orange;}
+        .underline{
+            text-decoration: underline;}
+    </style>
+    </head>
+    <body>
+    <ul class="purple">
+    <li>Coffee</li>
+    <li>Tea
+        <ul class="orange">
+            <li><span class="orange-text">Cold</span> Tea
+                <ul class="nobullet">
+                    <li class="underline">Jasmine</li>
+                    <li class="underline">Green</li>
+                </ul>
+            </li>
+            <li><span class="orange-text">Hot</span> Tea</li>
+        </ul>
+    </li>
+    <li>Coca Cola</li>
+    </ul>
+    </body>
+</html>
