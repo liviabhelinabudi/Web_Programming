@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+
+    <script>
+    function buatPiramida()
+    {var tinggi = document.getElementById("tinggi").value;
+        if(isNaN(tinggi) || tinggi == ""){
+            alert("input harus angka");
+            return;}
+
+        tinggi = parseInt(tinggi);
+        var hasil = "<table width='800' height='600' border='1'>";
+
+        for(var i = 1; i <= tinggi; i++){
+            hasil += "<tr>";
+
+            for(var j = 1; j <= tinggi - i; j++){
+                hasil += "<td></td>";}
+
+            for(var k = 1; k <= (2*i - 1); k++){
+                hasil += "<td bgcolor='orange'></td>";}
+
+            for(var j = 1; j <= tinggi - i; j++){
+                hasil += "<td></td>";}
+
+            hasil += "</tr>";
+        }
+        hasil += "</table>";
+        document.getElementById("output").innerHTML = hasil;
+    }
+    </script>
+    
+</head>
+<body>
+    Tinggi Piramida :
+    <input type="text" id="tinggi"><br>
+    <input type="button" value="proses" onclick="buatPiramida()">
+    <br><br>
+    <div id="output"></div>
+</body>
+</html>

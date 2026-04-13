@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+
+    <script>
+    function proses()
+    {var input = document.getElementById("input").value;
+    var mode = document.getElementById("mode").value;
+    var hasil = "";
+
+        if(mode == "dec2bin"){
+            if(isNaN(input) || input < 0 || input > 255 || input == ""){
+                alert("input hanya bisa 0 - 255!");
+                return;}
+
+            input = parseInt(input);
+
+            while(input > 0){
+                hasil = (input % 2) + hasil;
+                input = Math.floor(input / 2);}
+
+            while(hasil.length < 8){
+                hasil = "0" + hasil;}
+        }
+        else{
+            if(input.length != 8){
+                alert("harus 8 digit!");
+                return;}
+
+            for(var i = 0; i < input.length; i++){
+                if(input[i] != "0" && input[i] != "1"){
+                    alert("hanya bisa 0 atau 1!");
+                    return;}}
+            var pangkat = 0;
+            hasil = 0;
+
+            for(var i = input.length - 1; i >= 0; i--){
+                hasil += parseInt(input[i]) * Math.pow(2, pangkat);
+                pangkat++;}
+        }
+        document.getElementById("output").value = hasil;
+    }
+    function resetForm()
+    {document.getElementById("input").value = "";
+    document.getElementById("output").value = "";}
+    </script>
+    
+</head>
+<body>
+<table border="1" cellpadding="5">
+    <tr>
+        <td style="color:blue; font-weight:bold;">Input :</td>
+        <td><input type="text" id="input"></td>
+    </tr>
+    <tr>
+        <td style="color:blue; font-weight:bold;">Output :</td>
+        <td><input type="text" id="output" readonly></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <select id="mode">
+                <option value="dec2bin">decimal-biner</option>
+                <option value="bin2dec">biner-decimal</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+        <input type="button" value="PROSES" onclick="proses()" style="color:blue;">
+        <input type="button" value="RESET" onclick="resetForm()" style="color:blue;">
+        </td>
+    </tr>
+</table>
+</body>
+</html>

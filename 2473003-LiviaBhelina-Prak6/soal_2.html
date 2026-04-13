@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+
+    <script>
+    function buatTabel()
+    { var angka;
+        while(true){
+            angka = prompt("A number?");
+            if(angka != null && angka != "" && !isNaN(angka)){
+                break;}
+        }
+    angka = parseInt(angka);
+    var isi = "<table border='1' cellpadding='10'>";
+    for(var i = 1; i <= angka; i++){
+            isi += "<tr>";
+            isi += "<td>" + i + "</td>";
+            isi += "<td>x</td>";
+            isi += "<td>" + angka + "</td>";
+            isi += "<td>=</td>";
+            isi += "<td>" + (i * angka) + "</td>";
+            isi += "</tr>";}
+    isi += "</table>";
+    document.getElementById("hasil").innerHTML = isi;
+    }
+    </script>
+    
+</head>
+<body onload="buatTabel()">
+    <div id="hasil"></div>
+</body>
+</html>
