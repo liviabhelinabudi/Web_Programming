@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+
+    <style>
+        .box {
+            border: 2px solid black;
+            padding: 15px;
+            display: inline-block;}
+        .row {
+            margin-bottom: 10px;}
+        label {
+            display: inline-block;
+            width: 50px; }
+        input {
+            width: 150px;}
+        button {
+            height: 25px;
+            margin-right: 10px; }
+        select {
+            height: 25px;}
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <div class="row">
+        <label>Data</label>
+        <input type="text" id="data"></div>
+    <div class="row">
+        <button onclick="tambah()">Add</button>
+
+        <select onchange="proses(this.value)">
+            <option value="">Pilih Operasi</option>
+            <option value="display">Display</option>
+            <option value="count">Count</option>
+            <option value="sum">Sum</option>
+            <option value="avg">Average</option>
+            <option value="max">Max</option>
+            <option value="min">Min</option>
+            <option value="ganjil">Ganjil</option>
+            <option value="genap">Genap</option>
+            <option value="hapus">Hapus</option>
+        </select>
+    </div>
+    <div class="row">
+        <label>Hasil</label>
+        <input type="text" id="hasil">
+    </div>
+</div>
+
+<script>
+var arr = [];
+function tambah(){
+    var nilai = document.getElementById("data").value;
+
+    if(nilai != ""){
+        arr.push(parseInt(nilai));
+        document.getElementById("data").value = "";}}
+
+function proses(pilihan){
+    var hasil = "";
+
+    if(pilihan == "display"){
+        hasil = arr.join(", ");
+    }
+    else if(pilihan == "count"){
+        hasil = arr.length;
+    }
+    else if(pilihan == "sum"){
+        var total = 0;
+        for(var i=0; i<arr.length; i++){
+            total += arr[i];}
+        hasil = total;}
+    else if(pilihan == "avg"){
+        var total = 0;
+        for(var i=0; i<arr.length; i++){
+            total += arr[i];}
+        hasil = total / arr.length;}
+    else if(pilihan == "max"){
+        var max = arr[0];
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i];}}
+        hasil = max;}
+    else if(pilihan == "min"){
+        var min = arr[0];
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];}}
+        hasil = min;}
+    else if(pilihan == "ganjil"){
+        var temp = [];
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] % 2 != 0){
+                temp.push(arr[i]);}}
+        hasil = temp.join(", ");}
+    else if(pilihan == "genap"){
+        var temp = [];
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] % 2 == 0){
+                temp.push(arr[i]);}}
+        hasil = temp.join(", ");}
+    else if(pilihan == "hapus"){
+        arr = [];
+        hasil = "";}
+    document.getElementById("hasil").value = hasil;}
+</script>
+</body>
+</html>

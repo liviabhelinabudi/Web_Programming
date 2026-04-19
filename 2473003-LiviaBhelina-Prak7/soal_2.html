@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+
+    <style>
+        table {
+            border-collapse: collapse;}
+
+        th, td {
+            border: 1px solid white;
+            padding: 5px 10px;
+            font-weight: normal;}
+
+        .header {
+        background-color: #aabbaa;}
+        .c1 {
+        background-color: #aaccff;}
+        .c2 {
+        background-color: #ffccaa;}
+        .c3 {
+        background-color: #CCFFAA;}
+    </style>
+</head>
+<body>
+<table>
+    <tr class="header">
+        <th>Position</th>
+        <th>Programming Language</th>
+        <th>Ratings</th></tr>
+
+    <tr class="c1" onmouseover="over(this)" onmouseout="out(this)">
+        <td>1</td><td>C</td><td>18.058%</td></tr>
+
+    <tr class="c2" onmouseover="over(this)" onmouseout="out(this)">
+        <td>2</td><td>Java</td><td>18.051%</td></tr>
+
+    <tr class="c1" onmouseover="over(this)" onmouseout="out(this)">
+        <td>3</td><td>C++</td><td>9.707%</td></tr>
+
+    <tr class="c2" onmouseover="over(this)" onmouseout="out(this)">
+        <td>4</td><td>PHP</td><td>9.662%</td></tr>
+
+    <tr class="c1" onmouseover="over(this)" onmouseout="out(this)">
+        <td>5</td><td>(Visual) Basic</td><td>6.392%</td></tr>
+</table>
+
+<script>
+function over(x){
+    x.setAttribute("data-awal", x.className); 
+    x.className = "c3";}
+
+function out(x){
+    x.className = x.getAttribute("data-awal");}
+</script>
+</body>
+</html>
