@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+    <script src="../jquery-4.0.0.min.js"></script>
+
+    <style>
+        #menu {
+            width: 500px;
+            height: 120px;
+            background-color: #eeeeee;
+            border: 1px solid gray;
+            box-shadow: 3px 3px 10px gray;
+            padding-top: 10px;
+            padding-left: 10px; }
+        #menu li {
+            list-style: none;}
+        #menu>li {
+            float: left;
+            margin-right: 10px;
+            position: relative;}
+        #menu>li>a {
+            display: block;
+            width: 150px;
+            background-color: deeppink;
+            color: white;
+            text-decoration: underline;
+            padding-left: 5px;}
+        #menu li ol {
+            padding-left: 0;
+            margin-top: 0;
+            border: 2px solid deeppink;
+            background-color: white;
+            position: absolute;
+            width: 150px;}
+        #menu li ol li a {
+            color: black;}
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("li.item ol").hide();
+            $("li.item").hover(
+                function () {
+                    $(this).children("ol").show();
+                },
+                function () {
+                    $(this).children("ol").hide();
+                }
+
+            );
+
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="menu">
+        <li class="item">
+            <a href="#">jQuery</a>
+            <ol>
+                <li><a href="#">Download</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Blog</a></li>
+            </ol>
+        </li>
+        <li class="item">
+            <a href="#">Community</a>
+            <ol>
+                <li><a href="#">Mailing List</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Demos</a></li>
+                <li><a href="#">Plugins</a></li>
+            </ol>
+        </li>
+        <li class="item">
+            <a href="#">Development</a>
+            <ol>
+                <li><a href="#">Source Code</a></li>
+                <li><a href="#">Bug Tracking</a></li>
+                <li><a href="#">Recent Changes</a></li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>

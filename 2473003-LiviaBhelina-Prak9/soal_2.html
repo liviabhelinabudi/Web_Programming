@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+    <script src="../jquery-4.0.0.min.js"></script>
+
+    <style>
+        #box {
+            width: 300px;
+            border: 1px solid gray;
+            box-shadow: 3px 3px 10px gray;
+            padding: 10px;}
+        #nama {
+            width: 170px;}
+        .hasil {
+            font-size: 18px;}
+    </style>
+
+   <script>
+    $(document).ready(function () {
+        $("#add").click(function () {
+            var nama = $("#nama").val();
+            $("<div class='hasil'>" + nama + "</div>").appendTo("#data");
+            $("#nama").val("");});
+
+        $("#search").click(function () {
+            $(".hasil").css("text-decoration", "none");
+            var cari = $("#nama").val().toLowerCase();
+            $(".hasil").filter(function () {
+                return $(this).text().toLowerCase().includes(cari);
+            }).css("text-decoration", "underline");
+        });
+    });
+    </script>
+
+</head>
+<body>
+    <div id="box">
+        <input type="text" id="nama">
+        <button id="add">Add</button>
+        <button id="search">Search</button>
+        <div id="data">
+            <div class="hasil">John Resig</div>
+            <div class="hasil">George Martin</div>
+            <div class="hasil">Malcom John Sinclair</div>
+            <div class="hasil">J. Ohn</div>
+        </div>
+    </div>
+</body>
+</html>

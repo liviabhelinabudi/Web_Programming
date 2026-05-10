@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+    <script src="../jquery-4.0.0.min.js"></script>
+
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px blue solid;}
+        span {
+            color: red;}
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("div").each(function (index, domEle) {
+                    if ($(domEle).attr("id") == "merah") {
+                        return false;}
+                    $(domEle).css("background-color", "yellow");
+                });
+            });
+            $("div").click(function () {
+                $(this).css("background-color", "red");
+                $(this).attr("id", "merah");
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <button>Change colors</button>
+    <br><br>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
