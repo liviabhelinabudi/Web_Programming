@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+    <script src="jquery.js"></script>
+
+    <style>
+        #container {
+            width: 700px;
+            border: 1px solid black;
+            padding: 15px;}
+        #pilihan {
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 20px;}
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;}
+        th {
+            background-color: black;
+            color: white;
+            padding: 5px;}
+        td {
+            padding: 5px;}
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#search").click(function () {
+                var pilihan = $(":radio[name='kelas']:checked").val();
+                var file = "";
+                if (pilihan == "all") {
+                    file = "nilai.js";
+                }
+                else if (pilihan == "A") {
+                    file = "nilaiA.js";
+                }
+                else {
+                    file = "nilaiB.js";
+                }
+                $.getJSON(file, function (data) {
+                    var tabel =
+                        "<table border='1'>" +
+                        "<tr>" +
+                        "<th>NRP</th>" +
+                        "<th>NAMA</th>" +
+                        "<th>KELAS</th>" +
+                        "<th>NILAI AKHIR</th>" +
+                        "</tr>";
+                    $.each(data, function (i, item) {
+                        tabel +=
+                            "<tr>" +
+                            "<td>" + item.nrp + "</td>" +
+                            "<td>" + item.nama + "</td>" +
+                            "<td>" + item.kelas + "</td>" +
+                            "<td>" + item.nilai + "</td>" +
+                            "</tr>";
+                    });
+                    tabel += "</table>";
+                    $("#hasil").html(tabel);
+                    $("tr:odd").css("background-color", "#FFFFCC");
+                    $("tr:even").css("background-color", "#CCFFAA");
+                    $("tr:first").css({
+                        "background-color": "black",
+                        "color": "white"
+                    });
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <h2>
+            Selamat! Berikut adalah Daftar Mahasiswa yang mendapat
+            Nilai A Pemograman Web SI Tahun Ajaran 2023/2024
+        </h2>
+        <div id="pilihan">
+            <input type="radio" name="kelas" value="all"> All
+            <br>
+            <input type="radio" name="kelas" value="A"> Kelas A
+            <br>
+            <input type="radio" name="kelas" value="B"> Kelas B
+            <br><br>
+            <button id="search">Search</button>
+        </div>
+        <div id="hasil">
+            <table border="1">
+                <tr>
+                    <th>NRP</th>
+                    <th>NAMA</th>
+                    <th>KELAS</th>
+                    <th>NILAI AKHIR</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

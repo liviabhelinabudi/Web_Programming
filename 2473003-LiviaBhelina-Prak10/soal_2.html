@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2473003-Livia Bhelina Budi</title>
+    <script src="jquery.js"></script>
+
+    <style>
+        #atas {
+            width: 420px;
+            border: 1px solid black;
+            padding: 5px;
+            margin-bottom: 20px;}
+        #hasil {
+            width: 640px;}
+        #judul {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            border-bottom: 1px solid gray;}
+        .isi {
+            padding: 5px;
+            border-bottom: 1px solid gray;}
+        .footer {
+            border-top: 1px solid gray;
+            padding: 3px;}
+        table {
+            width: 100%;}
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#look").click(function () {
+                $.getJSON("SIJson.txt", function (data) {
+                    var tampil = "";
+                    tampil +=
+                        "<div id='judul'>" +
+                        "<a href='" + data.link + "'>" +
+                        data.title +
+                        "</a>" +
+                        "</div>";
+                    $.each(data.mataKuliah, function (i, item) {
+                        tampil +=
+                            "<div class='isi'>" +
+                            "<a href='" + item.link + "'>" +
+                            item.kode + " - " + item.nama +
+                            "</a>" +
+                            "<br>" +
+                            "By : " + item.dosen +
+                            " / <i>" + item.tanggal + "</i>" +
+                            "<br><br>" +
+                            item.deskripsi.replace(/\n/g, "<br>") +
+                            "<br><br>" +
+                            "Universitas : " +
+                            "<a href='" + item.linkUniv + "'>" +
+                            "Click Here" +
+                            "</a>" +
+                            "<br>" +
+                            "Tag(s) : " + item.tag +
+                            "</div>";
+                    });
+                    tampil +=
+                        "<div class='footer'>" +
+                        "@S1-SI FIT UKM" +
+                        "</div>";
+                    $("#hasil").html(tampil);
+                    $("#hasil").css("border", "1px solid gray");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="atas">
+        <table border="1" cellspacing="0">
+            <tr>
+                <td>Title</td>
+            </tr>
+            <tr>
+                <td>Content</td>
+            </tr>
+            <tr>
+                <td>Generator</td>
+            </tr>
+        </table>
+        <br>
+        <button id="look">Look</button>
+    </div>
+    <div id="hasil"></div>
+</body>
+</html>
